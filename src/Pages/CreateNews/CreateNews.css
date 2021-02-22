@@ -1,0 +1,51 @@
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.row1 {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  width: 79%;
+}
+
+.category {
+  width: 20%;
+}
+
+.source {
+  width: 49.5%;
+  border-radius: 1px;
+}
+.content {
+  margin-bottom: 10px;
+}
+
+@media (max-width: 840px) {
+  .row1 {
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+  .title {
+    width: 100%;
+  }
+  .category {
+    width: 100%;
+  }
+  .source {
+    width: 100%;
+  }
+  .content {
+    margin-bottom: 0px;
+  }
+}
+
+.location {
+  border-radius: 1px;
+  width: 50%;
+}
