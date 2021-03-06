@@ -11,23 +11,22 @@ import categories from "../../data/category";
 import "./CreateNews.css";
 import { ReactSearchAutocomplete } from "react-search-autocomplete";
 import { citiesWithState } from "../../data/citiesWithState";
+// import axios from "axios";
 
 const CreateNews = () => {
-  const [age, setAge] = useState("");
+  // const [title, setTitle] = useState();
+  // const [category, setCategory] = useState();
+  // const [location, setLocation] = useState();
+  // const [source, setSource] = useState();
+  // const [content, setContent] = useState();
+  // const [pic, setPic] = useState();
 
+  const [age, setAge] = useState("");
   const handleChange = (event) => {
     setAge(event.target.value);
   };
 
   const items = citiesWithState;
-
-  // const handleOnSearch = (string, results) => {
-  //   console.log(string, results);
-  // };
-
-  // const handleOnFocus = () => {
-  //   console.log("Focused");
-  // };
 
   const handleOnSelect = (item) => {
     console.log(item.name);

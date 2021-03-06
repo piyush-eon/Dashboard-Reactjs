@@ -17,7 +17,7 @@ import {
   ThemeProvider,
   useTheme,
 } from "@material-ui/core/styles";
-import { useMediaQuery } from "@material-ui/core";
+import { Button, useMediaQuery } from "@material-ui/core";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useEffect } from "react";
@@ -67,8 +67,17 @@ function ResponsiveDrawer(props) {
   const history = useHistory();
 
   useEffect(() => {
-    if (page === 0) {
+    const user = localStorage.getItem("userDetail");
+    props.setIsLogout(true);
+
+    if (!user) {
       history.push("/");
+      props.setIsLogout(false);
+      return;
+    }
+
+    if (page === 0) {
+      history.push("/home");
     } else if (page === 1) {
       history.push("/allnews");
     } else if (page === 2) {
@@ -78,7 +87,8 @@ function ResponsiveDrawer(props) {
     } else if (page === 4) {
       history.push("/users");
     }
-  }, [page, history]);
+    // eslint-disable-next-line
+  }, [page, history, props.setIsLogout]);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -137,11 +147,17 @@ function ResponsiveDrawer(props) {
   const container =
     window !== undefined ? () => window().document.body : undefined;
 
+  const logout = () => {
+    localStorage.removeItem("userDetail");
+    props.setIsLogout(false);
+    history.push("/");
+  };
+
   return (
     <div className={classes.root}>
       <CssBaseline />
       <AppBar position="fixed" className={classes.appBar}>
-        <Toolbar>
+        <Toolbar style={{ display: "flex" }}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -151,9 +167,14 @@ function ResponsiveDrawer(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap>
+          <Typography variant="h6" noWrap style={{ flex: 1 }}>
             Dashboard
           </Typography>
+          {props.islogout && (
+            <Button variant="contained" disableElevation onClick={logout}>
+              Log Out
+            </Button>
+          )}
         </Toolbar>
       </AppBar>
       <nav className={classes.drawer} aria-label="mailbox folders">
