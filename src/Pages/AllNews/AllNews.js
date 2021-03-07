@@ -6,6 +6,7 @@ import "./AllNews.css";
 
 const AllNews = () => {
   const [news, setNews] = useState([]);
+  const [userInfo, setUserInfo] = useState();
 
   const fetchNews = async () => {
     const { data } = await axios.get(`${backendUrl}/news`);
@@ -16,7 +17,7 @@ const AllNews = () => {
   const deleteNews = async (id) => {
     const config = {
       headers: {
-        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwMmVhOWNmNGMzOGNhOTllNDJhMzg0ZCIsImlhdCI6MTYxMzY3MDkxNywiZXhwIjoxNjE2MjYyOTE3fQ.y5E7GfmALcK26Z05HiQJ_MElhxfBQDGwl8FyXK6O9bs`,
+        Authorization: `Bearer ${userInfo.token}`,
       },
     };
 
@@ -28,6 +29,8 @@ const AllNews = () => {
   };
 
   useEffect(() => {
+    setUserInfo(JSON.parse(localStorage.getItem("userDetail")));
+
     fetchNews();
 
     return () => {

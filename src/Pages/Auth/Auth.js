@@ -20,7 +20,7 @@ const Auth = ({ setIsLogout }) => {
     }
   }, [history, setIsLogout]);
 
-  const createSingleNews = async () => {
+  const Authentication = async () => {
     try {
       const config = {
         headers: {
@@ -100,7 +100,7 @@ const Auth = ({ setIsLogout }) => {
           variant="contained"
           size="large"
           color="primary"
-          onClick={!otpActive ? createSingleNews : verifyOTP}
+          onClick={!otpActive ? Authentication : verifyOTP}
         >
           {!otpActive ? "Send OTP" : "Login"}
         </Button>
