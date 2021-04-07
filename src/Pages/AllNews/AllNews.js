@@ -10,7 +10,7 @@ const AllNews = () => {
 
   const fetchNews = async () => {
     const { data } = await axios.get(`${backendUrl}/news`);
-    console.log(data);
+    // console.log(data);
     setNews(data);
   };
 

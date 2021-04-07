@@ -1,0 +1,11 @@
+.magazines {
+  display: flex;
+  flex-direction: column;
+}
+.allmagazines {
+  display: flex;
+  flex-wrap: wrap;
+}
+.singleMagazine {
+  cursor: pointer;
+}

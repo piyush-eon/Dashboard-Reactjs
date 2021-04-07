@@ -85,6 +85,12 @@ function ResponsiveDrawer(props) {
     } else if (page === 3) {
       history.push("/approve");
     } else if (page === 4) {
+      history.push("/magazine");
+    } else if (page === 5) {
+      history.push("/viral");
+    } else if (page === 6) {
+      history.push("/jobs");
+    } else if (page === 7) {
       history.push("/users");
     }
     // eslint-disable-next-line
@@ -124,21 +130,28 @@ function ResponsiveDrawer(props) {
       </div>
       <Divider />
       <List>
-        {["Home", "All News", "Create News", "Approve News", "Users"].map(
-          (text, index) => (
-            <ListItem
-              button
-              onClick={(e) => setPage(index)}
-              key={text}
-              style={{ padding: "8px 20px", margin: "6px 0" }}
-            >
-              {/* <ListItemIcon>
+        {[
+          "Home",
+          "All News",
+          "Create News",
+          "Approve News",
+          "Magazine",
+          "Viral",
+          "Jobs",
+          "Users",
+        ].map((text, index) => (
+          <ListItem
+            button
+            onClick={(e) => setPage(index)}
+            key={text}
+            style={{ padding: "8px 20px", margin: "6px 0" }}
+          >
+            {/* <ListItemIcon>
                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
               </ListItemIcon> */}
-              <ListItemText primary={text} />
-            </ListItem>
-          )
-        )}
+            <ListItemText primary={text} />
+          </ListItem>
+        ))}
       </List>
       <Divider />
     </div>
