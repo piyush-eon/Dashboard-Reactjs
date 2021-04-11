@@ -32,7 +32,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function NewsCard({ singleNews, deleteNews }) {
+export default function NewsCard({
+  singleNews,
+  deleteNews,
+  approve,
+  approveNews,
+}) {
   const classes = useStyles();
 
   const date = (d) => {
@@ -117,6 +122,16 @@ export default function NewsCard({ singleNews, deleteNews }) {
         >
           Delete
         </Button>
+        {approve && (
+          <Button
+            size="small"
+            color="secondary"
+            variant="contained"
+            onClick={() => approveNews(singleNews._id)}
+          >
+            Approve
+          </Button>
+        )}
       </CardActions>
     </Card>
   );

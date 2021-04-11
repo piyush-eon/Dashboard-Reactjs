@@ -43,6 +43,8 @@ const CreateNews = () => {
     formData.append("location", location);
     formData.append("pic", pic);
 
+    console.log(formData);
+
     try {
       const config = {
         headers: {

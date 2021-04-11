@@ -51,14 +51,16 @@ const Auth = ({ setIsLogout }) => {
         { otp, phone },
         config
       );
+
+      console.log(data.user.isAdmin);
       setError();
-      if (data.success === true) {
+      if (data.success === true && data.user.isAdmin) {
         console.log(data);
 
         localStorage.setItem("userDetail", JSON.stringify(data));
         setIsLogout(true);
         history.push("/home");
-      }
+      } else setError("You are not admin");
     } catch (error) {
       setError("Please Enter Correct OTP");
     }
