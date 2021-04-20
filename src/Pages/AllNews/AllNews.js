@@ -40,7 +40,7 @@ const AllNews = () => {
 
   return (
     <div className="newsContainer">
-      {news?.map((singleNews) => (
+      {news.news?.map((singleNews) => (
         <NewsCard
           key={singleNews._id}
           singleNews={singleNews}

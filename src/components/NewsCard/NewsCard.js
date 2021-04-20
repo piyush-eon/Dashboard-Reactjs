@@ -46,6 +46,12 @@ export default function NewsCard({
     return getdate.toDateString();
   };
 
+  // const img = (pic) => {
+  //   var image = new Image();
+  //   image.src = pic;
+  //   return image;
+  // };
+
   return (
     <Card className={classes.root}>
       <CardActionArea>
